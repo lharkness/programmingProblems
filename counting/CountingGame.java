@@ -43,16 +43,8 @@ public class CountingGame {
                 continue;
             }
             // The case where we want to skip the entry under consideration
+            curEntryIndex = incrementEntryIndex(curEntryIndex, numEntries, removed);
             curStep++;
-            curEntryIndex++;
-
-            if (curEntryIndex > numEntries) {
-                int nextIndex = 1;
-                while(removed[nextIndex] != 0) {
-                    nextIndex++;
-                }
-                curEntryIndex = nextIndex;
-            }
             if (curStep > step) {
                 curStep = 1;
             }
