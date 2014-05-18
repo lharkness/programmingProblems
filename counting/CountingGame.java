@@ -9,6 +9,7 @@ import java.util.Arrays;
  *  it outputs the order that the entries were counted out.
  */
 public class CountingGame {
+
     public static void main(String[] args) {
         int numEntries = Integer.parseInt(args[0]);
         int step = Integer.parseInt(args[1]);
@@ -30,14 +31,7 @@ public class CountingGame {
         while(numRemoved < numEntries) {
             // The case where the entry under consideration has already been removed
             if (removed[curEntryIndex] != 0) {
-                curEntryIndex++;
-                if (curEntryIndex > numEntries) {
-                    int nextIndex = 1;
-                    while(removed[nextIndex] != 0) {
-                        nextIndex++;
-                    }
-                    curEntryIndex = nextIndex;
-                }
+                curEntryIndex = incrementEntryIndex(curEntryIndex, numEntries, removed);
                 continue;
             }
             // the case where we want to remove the entry under consideration
@@ -45,14 +39,7 @@ public class CountingGame {
                 numRemoved++;
                 removed[curEntryIndex] = numRemoved;
                 curStep = 1;
-                curEntryIndex++;
-                if (curEntryIndex > numEntries) {
-                    int nextIndex = 1;
-                    while(removed[nextIndex] != 0) {
-                        nextIndex++;
-                    }
-                    curEntryIndex = nextIndex;
-                }
+                curEntryIndex = incrementEntryIndex(curEntryIndex, numEntries, removed);
                 continue;
             }
             // The case where we want to skip the entry under consideration
@@ -77,5 +64,18 @@ public class CountingGame {
         }
         System.out.println();
 
+    }
+
+    private static int incrementEntryIndex(int curEntryIndex, int numEntries, int[] removed) {
+        curEntryIndex++;
+        if (curEntryIndex > numEntries) {
+            int nextIndex = 1;
+            while(removed[nextIndex] != 0) {
+                nextIndex++;
+            }
+            curEntryIndex = nextIndex;
+        }
+
+        return curEntryIndex;
     }
 }
