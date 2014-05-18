@@ -66,6 +66,13 @@ public class CountingGame {
 
     }
 
+    /**
+     *  Used to handle incrementing the index - skips removed items and wraps around the end
+     * @param curEntryIndex the current index (the one to increment)
+     * @param numEntries the number of entries in the list (I suppose this could be removed.length but that's a little hackish)
+     * @param removed the entries that have been removed (non-zero entries are removed)
+     * @return the next index
+     */
     private static int incrementEntryIndex(int curEntryIndex, int numEntries, int[] removed) {
         curEntryIndex++;
         if (curEntryIndex > numEntries) {
