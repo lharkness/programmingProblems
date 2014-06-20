@@ -19,6 +19,7 @@ public class CountingGameTake2 {
     private static int curStep;
 
     public static void main(String[] args) {
+        // O(n)
         initializeProblem(args);
         
         while(moreEntriesToRemove()) {
@@ -68,6 +69,7 @@ public class CountingGameTake2 {
      * @param removed the entries that have been removed (non-zero entries are removed)
      */
     private static void incrementEntryIndex() {
+        // O(?)
         curEntryIndex++;
         if (curEntryIndex > numEntries) {
             int nextIndex = 1;
@@ -106,6 +108,7 @@ public class CountingGameTake2 {
      *  @return true if we haven't added all entries to the "removed" array
      */
     private static boolean moreEntriesToRemove() {
+        // O(1)
         return numRemoved < numEntries;
     }
 
