@@ -5,12 +5,12 @@ import static org.junit.Assert.assertEquals;
 
 public class AllUniqueNoExtraDataStructuresTest {
 	@Test
-	public void TestThatRepeatsAreDetected() {
+	public void testThatRepeatsAreDetected() {
 		assertTrue("Failed", AllUnique.containsRepeatedCharacters("Lee"));
 	}
 
 	@Test
-	public void TestThatUniqueStringsAreProcessedCorrectly() {
+	public void testThatUniqueStringsAreProcessedCorrectly() {
 		assertEquals(AllUnique.containsRepeatedCharacters("Le"), false);
 	}
 }
